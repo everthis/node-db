@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
+        models.User.hasMany(models.Doc);
         console.log(models)
         // associations can be defined here
       }
