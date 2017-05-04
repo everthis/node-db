@@ -1,0 +1,9 @@
+node_modules/
+/uploads/*
+!/uploads/.gitkepp
+/shared/pids/*
+!/shared/pids/.gitkeep
+/shared/logs/*
+!/shared/logs/.gitkeep
+/shared/sockets/*
+!/shared/sockets/.gitkeep
