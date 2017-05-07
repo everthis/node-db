@@ -54,7 +54,7 @@ function pp(obj) {
 //     }
 // }).then(function(user) {
 //   return user.createCase({
-//     feedbackSource: 'offline',
+//     feedbackSource: 'manual',
 //     orderTime: new Date(),
 //     orderId: 123
 //   })
@@ -62,12 +62,32 @@ function pp(obj) {
 //   console.log(pp(data) )
 // });
 
-db.User.find({
+// db.Case.find({
+// 	where: {
+// 		feedbackSource: 'manual'
+// 	}
+// }).then(function(data) {
+// 	return data.createCaseLog({
+// 		reply: 'another'
+// 	})
+// }).then(function(data) {
+// 	console.log(pp(data) )
+// })
+
+
+db.Case.find({
 	where: {
-		userName: 'sec'
+		feedbackSource: 'manual'
 	}
-}).then(function(user) {
-	return user.getCases()
+}).then(function(data) {
+	return db.CaseLog.findAndCountAll({
+		where: {
+			CaseId: data.id
+		},
+		order: [["createdAt", "DESC"]],
+		limit: 2,
+		offset: 1
+	})
 }).then(function(data) {
 	console.log(pp(data) )
 })
