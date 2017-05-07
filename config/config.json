@@ -4,7 +4,12 @@
     "password": "1qaz2wsx",
     "database": "node_db",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "idle": 100
+    }
   },
   "test": {
     "username": "root",

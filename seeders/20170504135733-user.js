@@ -13,14 +13,12 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Users', [{
-      first_name: 'John',
-      last_name: 'false',
+      userName: 'John',
       role: 'master',
       bio: 'tech',
       createdAt: new Date()
     }, {
-      first_name: 'John',
-      last_name: 'jim',
+      userName: 'John',
       role: 'master',
       bio: 'worker',
       createdAt: new Date()
