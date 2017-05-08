@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('caseLogs', {
+    return queryInterface.createTable('CaseLogs', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -32,11 +32,11 @@ module.exports = {
       ext: {
         type: Sequelize.TEXT
       },
-      caseId: {
+      CaseId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'cases',
+          model: 'Cases',
           key: 'id'
         },
         onUpdate: 'cascade',
@@ -53,6 +53,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('caseLogs');
+    return queryInterface.dropTable('CaseLogs');
   }
 };

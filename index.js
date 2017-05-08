@@ -2,7 +2,7 @@ let db = require('./models/index');
 let sequelize = db.sequelize;
 
 // Sync all models that aren't already in the database
-sequelize.sync()
+// sequelize.sync()
 
 // db.Case.findOne({
 // 	where: {
@@ -48,19 +48,19 @@ function pp(obj) {
 //   console.log(pp(data))
 // })
 
-// db.User.find({
-//     where: {
-//       userName: 'jim'
-//     }
-// }).then(function(user) {
-//   return user.createCase({
-//     feedbackSource: 'manual',
-//     orderTime: new Date(),
-//     orderId: 123
-//   })
-// }).then(function(data) {
-//   console.log(pp(data) )
-// });
+db.User.find({
+    where: {
+      userName: 'jim'
+    }
+}).then(function(user) {
+  return user.createCase({
+    feedbackSource: 'manual',
+    orderTime: new Date(),
+    orderId: 123
+  })
+}).then(function(data) {
+  console.log(pp(data) )
+});
 
 // db.Case.find({
 // 	where: {
@@ -75,19 +75,19 @@ function pp(obj) {
 // })
 
 
-db.Case.find({
-	where: {
-		feedbackSource: 'manual'
-	}
-}).then(function(data) {
-	return db.CaseLog.findAndCountAll({
-		where: {
-			CaseId: data.id
-		},
-		order: [["createdAt", "DESC"]],
-		limit: 2,
-		offset: 1
-	})
-}).then(function(data) {
-	console.log(pp(data) )
-})
+// db.Case.find({
+// 	where: {
+// 		feedbackSource: 'manual'
+// 	}
+// }).then(function(data) {
+// 	return db.CaseLog.findAndCountAll({
+// 		where: {
+// 			CaseId: data.id
+// 		},
+// 		order: [["createdAt", "DESC"]],
+// 		limit: 2,
+// 		offset: 1
+// 	})
+// }).then(function(data) {
+// 	console.log(pp(data) )
+// })

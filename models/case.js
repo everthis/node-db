@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Case.belongsTo(models.User)
+        Case.belongsTo(models.User, {foreignKey: 'UserId'})
         Case.hasMany(models.CaseLog)
       }
     }

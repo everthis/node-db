@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        CaseLog.belongsTo(models.Case)
+        CaseLog.belongsTo(models.Case, {foreignKey: 'CaseId'})
         // associations can be defined here
       }
     }
